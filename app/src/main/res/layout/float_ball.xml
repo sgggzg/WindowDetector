@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <!-- 圆形小浮球 (半径减半，尺寸从60变为40) -->
+    <TextView
+        android:id="@+id/tv_float_ball"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_float_ball"
+        android:text="监\n控"
+        android:textColor="#FFFFFF"
+        android:textSize="9sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <!-- 展开的菜单 (横向排列两个按钮，仅在展开时可见) -->
+    <LinearLayout
+        android:id="@+id/layout_float_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_float_menu"
+        android:visibility="gone"
+        android:gravity="center_vertical"
+        android:paddingEnd="8dp"
+        android:paddingStart="4dp">
+
+        <TextView
+            android:id="@+id/btn_float_stop_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="停止报警"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="#E94560"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:gravity="center"
+            android:visibility="gone" /> <!-- 默认隐藏，报警时才显示 -->
+
+        <TextView
+            android:id="@+id/btn_float_stop_monitor"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="停止监控"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="#FF9800"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:gravity="center"
+            android:layout_marginStart="6dp" />
+    </LinearLayout>
+</LinearLayout>

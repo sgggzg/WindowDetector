@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1A1A2E"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="预览识别区域"
+        android:textSize="20sp"
+        android:textColor="#E94560"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择图片"
+        android:background="#2196F3"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#111122">
+
+        <ImageView
+            android:id="@+id/ivPreviewImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter" />
+
+        <com.sgggzg.qmzg.RegionAdjustView
+            android:id="@+id/regionView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上边界:"
+            android:textColor="#AAAAAA"
+            android:layout_gravity="center_vertical" />
+
+        <EditText
+            android:id="@+id/etTopPreview"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="0.66"
+            android:textColor="#FFFFFF"
+            android:background="#16213E"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下边界:"
+            android:textColor="#AAAAAA"
+            android:layout_gravity="center_vertical" />
+
+        <EditText
+            android:id="@+id/etBottomPreview"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="0.81"
+            android:textColor="#FFFFFF"
+            android:background="#16213E"
+            android:padding="8dp"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnApply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="应用并返回"
+        android:background="#E94560"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>

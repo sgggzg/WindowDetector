@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 1. 文本过滤说明 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="12dp"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="📝 文本过滤使用说明（点击展开）"
+                    android:textColor="@color/accent_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvContent1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• 白名单：开启后，OCR 只识别白名单里包含的字符。关闭白名单则进入【全量识别】，可以识别屏幕上所有文字（但速度会变慢，且容易引入乱码）。\n\n• 剔除词：当识别到的文本行里包含任意一个剔除词时，系统会直接忽略这一行，不进行报警判断。常用于排除其他玩家的干扰信息（如“来自101”、“击飞”、“连斩”等）。"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2. 检测逻辑说明 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="12dp"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="⚙️ 检测逻辑使用说明（点击展开）"
+                    android:textColor="@color/accent_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvContent2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• 块外 OR（任意一组条件报警）：不同条件组之间是【或】的关系。只要满足了其中任意一组条件，就会触发报警。\n\n• 块内 AND（全部关键词满足报警）：同一个条件组内部是【与】的关系。组内的所有关键词必须全部出现在同一行（允许穿插，但顺序不能乱，且必须全部存在），才算这一组条件满足。\n\n• 示例：条件组1为 [158, 正在尝试占领]。只要公告里同一行同时出现“158”和“正在尝试占领”，就会报警。条件组2为 [101, 成功坚守]，也会独立触发报警。"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. 调整检测区域 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="12dp"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🖼️ 如何调整检测区域（点击展开）"
+                    android:textColor="@color/accent_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvContent3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• 在“设置”页，点击“预览区域”按钮。\n\n• 在预览界面中，你可以通过拖动上下边框，框选出游戏里公告栏所在的区域。\n\n• 调整完毕后点击“应用并返回”，边界数值会自动同步到设置页。\n\n• 提示：上下边界使用 0 到 1 的小数表示（如 0.66 表示屏幕从上往下 66% 的位置）。"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 4. 减少发热优化性能 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="12dp"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🌡️ 挂机时如何减少发热（点击展开）"
+                    android:textColor="@color/accent_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvContent4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• 调大 OCR 检测间隔：在“性能设置”中，把间隔从 3 秒改为 5 秒或更高，能显著降低 CPU 占用。\n\n• 开启“画面无变化时跳过OCR”：当公告栏没变化时，不会反复识别。这是省电降温的最强开关，强烈建议开启。\n\n• 关闭“图像上传”：如果不需要实时查看截图，可以关闭主页的“图像”开关，能节省广播和 Bitmap 内存复制的开销。\n\n• 关闭“日志写入”：如果不需要排查问题，可以关闭主页的“日志”开关，减少磁盘 I/O 损耗。"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 5. OCR白名单说明 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="12dp"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🔤 OCR白名单说明（点击展开）"
+                    android:textColor="@color/accent_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvContent5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• 白名单是为了提高 OCR 识别准确率而设计的。Tesseract 在识别时，如果画面里的字不在白名单里，它就会强行把相似的笔画映射成白名单里的字，导致乱码。\n\n• 建议把游戏公告里可能出现的所有汉字、数字和标点都填入白名单。\n\n• 本应用有自动补全机制：如果你开启了白名单，系统会自动把“条件组”和“剔除词”里包含的字符加入白名单。所以即使你忘记加某个字，系统也会帮你补上。\n\n• 如果你把白名单全部删空并保存，等同于关闭白名单，系统会转为【全量识别】模式。"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 6. 如何停止报警/监控 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="12dp"
+            android:layout_marginBottom="24dp"
+            android:animateLayoutChanges="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTitle6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🛑 如何停止报警/监控（点击展开）"
+                    android:textColor="@color/accent_red"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvContent6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• 点击主界面“停止监控”按钮：直接停止整个后台监控服务。\n\n• 下拉通知栏，点击通知里的“停止监控”或“停止报警”按钮：可以在不打开 App 的情况下快速操作。\n\n• 点击左上角悬浮球展开菜单：可以选择“停止监控”或“停止报警”。\n\n• 触发报警时弹出的悬浮窗，点击“关闭并静音”按钮，会关闭当前报警并进入 30 秒冷却。"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

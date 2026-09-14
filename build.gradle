@@ -1,0 +1,29 @@
+// Top-level build file
+buildscript {
+    repositories {
+        // 配置阿里云镜像加速
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        // 必须使用 8.7.0，完美兼容你外置的 Gradle 8.13
+        classpath 'com.android.tools.build:gradle:8.7.0'
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
